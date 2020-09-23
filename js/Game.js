@@ -8,4 +8,5 @@ class Game {
         this.phrases = [];
         this.activePhrase = null;
     }
+    createPhrases() {};
 }
