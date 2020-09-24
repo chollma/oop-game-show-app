@@ -14,7 +14,7 @@ class Game {
 
         ];
         this.activePhrase = null; // What is the phrase selected for the current game
-    }
+    };
 
     getRandomPhrase() {
         // Select a random phrase from the phrases property
