@@ -20,7 +20,8 @@ class Game {
     };
 
     randomPhrase() {
-
-
+        // Create a random number
+        // Select a random phrase by this random number
+        // Return the random phrase object
     };
 }
