@@ -5,23 +5,21 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = this.createPhrases();
-        this.activePhrase = null;
-    }
-    createPhrases() {
-        const phrases = [
-            { phrase: 'This is the first phrase' },
-            { phrase: 'This is the second phrase' },
-            { phrase: 'This is the third phrase' },
-            { phrase: 'This is the fourth phrase' },
-            { phrase: 'This is the fifth phrase' }
-        ];
-        return phrases;
-    };
+        this.phrases = [ // What phrases do I have to choose from for the game?
+            { phrase: 'I took a walk in the woods and came out taller than the trees' },
+            { phrase: 'All good things are wild and free' },
+            { phrase: 'In every walk with nature one receives far more than he seeks' },
+            { phrase: 'The human spirit needs places where nature has not been rearranged by the hand of man' },
+            { phrase: 'I go to nature every day for inspiration in the days work' }
 
-    randomPhrase() {
-        // Create a random number
-        // Select a random phrase by this random number
-        // Return the random phrase object
+        ];
+        this.activePhrase = null; // What is the phrase selected for the current game
+    }
+
+    getRandomPhrase() {
+        // Select a random phrase from the phrases property
+        let randomIndex = Math.floor(Math.random() * this.phrases.length); // If the phrases array has more phrases added, this should still work!
+        const randomPhrase = this.phrases[randomIndex];
+        return randomPhrase;
     };
 }
