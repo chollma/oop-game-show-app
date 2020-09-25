@@ -22,4 +22,11 @@ class Game {
         const randomPhrase = this.phrases[randomIndex];
         return randomPhrase;
     };
+
+    startGame() {
+        const overlay = document.getElementById('overlay');
+        overlay.style.display = 'none';
+
+
+    }
 }

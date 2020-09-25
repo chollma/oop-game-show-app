@@ -10,7 +10,7 @@ class Phrase {
     addPhraseToDisplay() {
         const chars = this.phrase.split(''); // split incoming phrase string into an array of its characters
         const div = document.getElementById('phrase'); // select the phrase div to start adding elements of the phrase
-        for (let i = 0; i < chars.length; i++) {
+        for (let i = 0; i < chars.length; i++) { // iterate through the characters building the list items in HTML
             const li = document.createElement('li');
             li.innerText = chars[i];
             if (chars[i] != " ") {
@@ -18,7 +18,7 @@ class Phrase {
             } else {
                 li.className = 'space';
             }
-            div.firstElementChild.append(li);
+            div.firstElementChild.append(li); // add the complete HTML to the page
         }
     };
 }
