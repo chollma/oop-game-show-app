@@ -8,11 +8,18 @@ class Phrase {
     };
 
     addPhraseToDisplay() {
-        // It's easy to select a random phrase and print it, but now we need to take the random phrase, parse out individual characters and add them as indiv. list items
+        const chars = this.phrase.split(''); // split incoming phrase string into an array of its characters
         const div = document.getElementById('phrase'); // select the phrase div to start adding elements of the phrase
-        const li = document.createElement('li'); // create a list item
-        li.className = 'hide letter '; // add a class name to the new list item
-        div.firstElementChild.append(li); // add the list item with its class name to the div we've selected
+        for (let i = 0; i < chars.length; i++) {
+            const li = document.createElement('li');
+            li.innerText = chars[i];
+            if (chars[i] != " ") {
+                li.className = 'hide letter ' + chars[i];
+            } else {
+                li.className = 'space';
+            }
+            div.firstElementChild.append(li);
+        }
     };
 }
 
