@@ -27,7 +27,6 @@ class Game {
         const overlay = document.getElementById('overlay'); // Hides the overlay
         overlay.style.display = 'none';
         this.activePhrase = this.getRandomPhrase(); // Gets random phrase => sets active phrase
-        console.log(this.activePhrase.phrase);
         new Phrase(this.activePhrase.phrase).addPhraseToDisplay();
 
     }
