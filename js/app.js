@@ -5,5 +5,8 @@
 let game = '';
 const button = document.getElementById('btn__reset'); // Event listener for start button
 button.addEventListener('click', () => {
-    game = new Game().startGame();
+    game = new Game();
+    game.startGame();
+    game.handleInteraction();
+
 });

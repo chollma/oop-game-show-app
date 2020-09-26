@@ -22,4 +22,8 @@ class Phrase {
             div.firstElementChild.append(li); // add the complete HTML to the page
         }
     };
+
+    checkLetter(selected) {
+
+    }
 }
