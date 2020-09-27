@@ -32,17 +32,11 @@ class Game {
     }
 
     handleInteraction(arg) {
-        console.log(this.activePhrase);
         if (new Phrase(this.activePhrase.phrase).checkLetter(arg) === true) {
             console.log('yes');
             console.log(arg);
         } else {
             console.log('no');
         }
-
-
     }
-
-
-
 }
