@@ -4,7 +4,6 @@
 
 class Phrase {
     constructor(phrase) {
-
         this.phrase = phrase.toLowerCase();
     };
 
@@ -23,14 +22,25 @@ class Phrase {
         }
     };
 
-    checkLetter(string) {
-            let selectedLetter = string.innerText;
+    checkLetter(letter) {
+            const selectedLetter = letter.innerText;
             if ((this.phrase).includes(selectedLetter)) {
+                this.showMatchedLetter(selectedLetter);
                 return true;
+
             } else {
                 return false;
             }
         } // selected letter passed in, checks if in active phrase (t/f)
-    showMatchedLetter() {} // if selected letter matches, displays letter on board
 
-}
+    showMatchedLetter(letter) {
+        const hidden = document.getElementsByClassName('letter');
+        for (let i = 0; i < hidden.length; i++) {
+            if (hidden[i].className === 'hide letter ' + letter) {
+                hidden[i].className = 'show letter ' + letter;
+            }
+        }
+    }
+};
+
+// if selected letter matches, displays letter on board

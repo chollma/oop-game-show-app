@@ -5,20 +5,23 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = [ // What phrases do I have to choose from for the game?
-            { phrase: 'I took a walk in the woods and came out taller than the trees' },
-            { phrase: 'All good things are wild and free' },
-            { phrase: 'In every walk with nature one receives far more than he seeks' },
-            { phrase: 'The human spirit needs places where nature has not been rearranged by the hand of man' },
-            { phrase: 'I go to nature every day for inspiration in the days work' }
-
-        ];
+        this.phrases = this.createPhrases(); // What phrases do I have to choose from for the game?
         this.activePhrase = null; // What is the phrase selected for the current game
     };
 
+    createPhrases() {
+        const array = [
+            { phrase: 'This is the first phrase' },
+            { phrase: 'This is the second phrase' },
+            { phrase: 'This is the third phrase' },
+            { phrase: 'This is the fourth phrase' },
+            { phrase: 'This is the fifth phrase' }
+        ];
+        return array;
+    };
+
     getRandomPhrase() {
-        // Select a random phrase from the phrases property
-        let randomIndex = Math.floor(Math.random() * this.phrases.length); // If the phrases array has more phrases added, this should still work!
+        const randomIndex = Math.floor(Math.random() * this.phrases.length);
         const randomPhrase = this.phrases[randomIndex];
         return randomPhrase;
     };
@@ -28,15 +31,13 @@ class Game {
         overlay.style.display = 'none';
         this.activePhrase = this.getRandomPhrase(); // Gets random phrase => sets active phrase
         new Phrase(this.activePhrase.phrase).addPhraseToDisplay();
+    };
 
-    }
+    handleInteraction(args) {
+        if (new Phrase(this.activePhrase.phrase).checkLetter(args) === true) {
 
-    handleInteraction(arg) {
-        if (new Phrase(this.activePhrase.phrase).checkLetter(arg) === true) {
-            console.log('yes');
-            console.log(arg);
         } else {
-            console.log('no');
+            console.log('Bad guess. Try again');
         }
-    }
+    };
 }

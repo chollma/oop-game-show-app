@@ -2,18 +2,22 @@
  * Project 4 - OOP Game App
  * app.js */
 
-let game = '';
+
+// Constructors
 const button = document.getElementById('btn__reset'); // Selector for start button
-const key = document.getElementsByClassName('key'); // Selector for input keys
-button.addEventListener('click', () => { // Event listener for start button click
+const key = document.getElementsByClassName('key'); // Selector for input keys 
+let game = '';
+
+// Event Listeners
+button.addEventListener('click', () => { // Start button click
     game = new Game();
     game.startGame();
-
-
+    game.getRandomPhrase();
 });
-for (let i = 0; i < key.length; i++) { // Event listener for keyboard click
+
+for (let i = 0; i < key.length; i++) { // Keyboard key click
     key[i].addEventListener('click', () => {
-        let letter = key[i]
+        let letter = key[i];
         game.handleInteraction(letter);
     });
 }
