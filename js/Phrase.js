@@ -14,7 +14,7 @@ class Phrase {
         for (let i = 0; i < chars.length; i++) { // iterate through the characters building the list items in HTML
             const li = document.createElement('li');
             li.innerText = chars[i];
-            if (chars[i] != " ") {
+            if (chars[i] != ' ') {
                 li.className = 'hide letter ' + chars[i];
             } else {
                 li.className = 'space';
@@ -23,7 +23,9 @@ class Phrase {
         }
     };
 
-    checkLetter(selected) {
+    checkLetter(string) {
 
-    }
+        } // selected letter passed in, checks if in active phrase (t/f)
+    showMatchedLetter() {} // if selected letter matches, displays letter on board
+
 }
