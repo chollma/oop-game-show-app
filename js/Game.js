@@ -31,10 +31,14 @@ class Game {
 
     }
 
-    handleInteraction(string) {
+    handleInteraction(arg) {
         console.log(this.activePhrase);
-        console.log(string);
-        console.log(this.activePhrase.phrase);
+        if (new Phrase(this.activePhrase.phrase).checkLetter(arg) === true) {
+            console.log('yes');
+            console.log(arg);
+        } else {
+            console.log('no');
+        }
 
 
     }

@@ -13,8 +13,7 @@ button.addEventListener('click', () => { // Event listener for start button clic
 });
 for (let i = 0; i < key.length; i++) { // Event listener for keyboard click
     key[i].addEventListener('click', () => {
-        let letter = key[i].innerText;
+        let letter = key[i]
         game.handleInteraction(letter);
-        console.log(letter);
     });
 }

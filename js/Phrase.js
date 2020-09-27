@@ -24,7 +24,12 @@ class Phrase {
     };
 
     checkLetter(string) {
-
+            let selectedLetter = string.innerText;
+            if ((this.phrase).includes(selectedLetter)) {
+                return true;
+            } else {
+                return false;
+            }
         } // selected letter passed in, checks if in active phrase (t/f)
     showMatchedLetter() {} // if selected letter matches, displays letter on board
 
