@@ -46,23 +46,24 @@ class Game {
     checkForWin() {
         const letters = document.querySelectorAll('li.letter');
         let hidden = [];
-        // select all the letters
         for (let i = 0; i < letters.length; i++) {
             if (letters[i].className.includes('hide')) {
                 hidden.push(letters[i]);
             }
         }
-        if (hidden.length === 0) {
+        if (hidden.length === 0 && this.missed < 5) {
             console.log('you won!')
         }
     }
     removeLife() {
-            this.missed += 1;
-            console.log('Bad guess. Life Removed');
-            const hearts = document.querySelectorAll('img');
-            for (let i = 0; i < this.missed; i++) {
-                hearts[i].src = 'images/lostHeart.png';
-            }
+        this.missed += 1;
+        console.log('Bad guess. Life Removed');
+        const hearts = document.querySelectorAll('img');
+        for (let i = 0; i < this.missed; i++) {
+            hearts[i].src = 'images/lostHeart.png';
         }
-        //gameOver(){}
+    }
+    gameOver() {
+
+    }
 }
