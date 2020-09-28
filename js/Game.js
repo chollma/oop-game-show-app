@@ -53,6 +53,7 @@ class Game {
         }
         if (hidden.length === 0 && this.missed < 5) {
             console.log('you won!')
+            this.gameOver(true);
         }
     }
     removeLife() {
@@ -62,8 +63,22 @@ class Game {
         for (let i = 0; i < this.missed; i++) {
             hearts[i].src = 'images/lostHeart.png';
         }
+        if (this.missed === 5) {
+            this.gameOver(false);
+        }
     }
-    gameOver() {
-
+    gameOver(arg) {
+        const overlay = document.getElementById('overlay');
+        const title = document.getElementById('game-over-message');
+        overlay.style.display = '';
+        if (arg) {
+            overlay.className = 'win';
+            title.innerHTML = 'You won!'
+        } else {
+            overlay.className = 'lose';
+            title.innerHTML = 'You are out of lives. Try again!'
+        }
+        // update the h1 
+        // replate overlay css class with win or lose
     }
 }
