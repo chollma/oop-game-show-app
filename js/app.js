@@ -19,5 +19,6 @@ for (let i = 0; i < key.length; i++) { // Keyboard key click
     key[i].addEventListener('click', () => {
         let letter = key[i];
         game.handleInteraction(letter);
+        game.checkForWin();
     });
 }
