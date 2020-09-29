@@ -43,7 +43,7 @@ class Game {
         if (new Phrase(this.activePhrase).checkLetter(selectedKey.innerText) === true) {
             // Add CSS class 'chosen' to selected letter
             selectedKey.className = 'chosen';
-            // call showMatchedLetter
+            game.showMatchedLetter(selectedKey.innerText);
             // call checkForWin
             game.checkForWin();
             // call gameOver

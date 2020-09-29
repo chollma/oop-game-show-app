@@ -38,7 +38,7 @@ class Phrase {
     }
 
     showMatchedLetter() {
-        const hidden = document.getElementsByClassName('letter');
+        const hidden = document.getElementsByClassName(character);
         for (let i = 0; i < hidden.length; i++) {
             if (hidden[i].className === 'hide letter ' + letter) {
                 hidden[i].className = 'show letter ' + letter;
