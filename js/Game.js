@@ -21,22 +21,37 @@ class Game {
     };
 
     getRandomPhrase() {
+        // Generate a random number
         const randomIndex = Math.floor(Math.random() * this.phrases.length);
+        // Select a phrase with that number as the index
         const randomPhrase = this.phrases[randomIndex];
         return randomPhrase;
     };
 
     startGame() {
-        const overlay = document.getElementById('overlay'); // Hides the overlay
+        // hide the overlay
+        const overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
-        this.activePhrase = this.getRandomPhrase(); // Gets random phrase => sets active phrase
-        new Phrase(this.activePhrase.phrase).addPhraseToDisplay();
+        // get a phrase and set it as the active phrase
+        this.activePhrase = this.getRandomPhrase();
+        // Add the active phrase to the display
+        new Phrase(this.activePhrase).addPhraseToDisplay();
     };
 
-    handleInteraction(args) {
-        if (new Phrase(this.activePhrase.phrase).checkLetter(args) === true) {
-
+    handleInteraction() {
+        // Check to see if selected letter matches one in the phrase
+        if (new Phrase(this.activePhrase).checkLetter(selectedKey.innerText) === true) {
+            // Add CSS class 'chosen' to selected letter
+            selectedKey.className = 'chosen';
+            // call showMatchedLetter
+            // call checkForWin
+            game.checkForWin();
+            // call gameOver
         } else {
+            // Disable the selected letter
+            selectedKey.disabled = true;
+            // Add the CSS class 'wrong' to selected letter
+            selectedKey.className = 'wrong';
             this.removeLife();
         }
 

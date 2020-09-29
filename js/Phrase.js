@@ -4,13 +4,17 @@
 
 class Phrase {
     constructor(phrase) {
-        this.phrase = phrase.toLowerCase();
+        // takes an object > accesses it's value > converts string to lower case
+        this.phrase = phrase.phrase.toLowerCase();
     };
 
     addPhraseToDisplay() {
-        const chars = this.phrase.split(''); // split incoming phrase string into an array of its characters
-        const div = document.getElementById('phrase'); // select the phrase div to start adding elements of the phrase
-        for (let i = 0; i < chars.length; i++) { // iterate through the characters building the list items in HTML
+        // split incoming phrase string into an array of its characters
+        const chars = this.phrase.split('');
+        // select the phrase div to start adding elements of the phrase
+        const div = document.getElementById('phrase');
+        // iterate through the characters building the list items in HTML
+        for (let i = 0; i < chars.length; i++) {
             const li = document.createElement('li');
             li.innerText = chars[i];
             if (chars[i] != ' ') {
@@ -18,22 +22,22 @@ class Phrase {
             } else {
                 li.className = 'space';
             }
-            div.firstElementChild.append(li); // add the complete HTML to the page
+            // add the complete HTML to the page
+            div.firstElementChild.append(li);
         }
     };
 
-    checkLetter(letter) {
-            const selectedLetter = letter.innerText;
-            if ((this.phrase).includes(selectedLetter)) {
-                this.showMatchedLetter(selectedLetter);
-                return true;
+    checkLetter(character) {
+        // incoming data is a single character
+        // Check if the string includes this character
+        if ((this.phrase).indexOf(character)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-            } else {
-                return false;
-            }
-        } // selected letter passed in, checks if in active phrase (t/f)
-
-    showMatchedLetter(letter) {
+    showMatchedLetter() {
         const hidden = document.getElementsByClassName('letter');
         for (let i = 0; i < hidden.length; i++) {
             if (hidden[i].className === 'hide letter ' + letter) {

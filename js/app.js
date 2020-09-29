@@ -12,13 +12,12 @@ let game = '';
 button.addEventListener('click', () => { // Start button click
     game = new Game();
     game.startGame();
-    game.getRandomPhrase();
 });
 
 for (let i = 0; i < key.length; i++) { // Keyboard key click
     key[i].addEventListener('click', () => {
-        let letter = key[i];
-        game.handleInteraction(letter);
-        game.checkForWin();
+        selectedKey = key[i];
+        console.log(selectedKey);
+        game.handleInteraction();
     });
 }
