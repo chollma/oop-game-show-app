@@ -17,7 +17,6 @@ button.addEventListener('click', () => { // Start button click
 for (let i = 0; i < key.length; i++) { // Keyboard key click
     key[i].addEventListener('click', () => {
         selectedKey = key[i];
-        console.log(selectedKey);
         game.handleInteraction();
     });
 }

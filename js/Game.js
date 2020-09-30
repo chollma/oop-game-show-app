@@ -69,13 +69,11 @@ class Game {
             }
         }
         if (hidden.length === 0 && this.missed < 5) {
-            console.log('you won!')
             this.gameOver(true);
         }
     }
     removeLife() {
         this.missed += 1;
-        console.log('Bad guess. Life Removed');
         const hearts = document.querySelectorAll('img');
         for (let i = 0; i < this.missed; i++) {
             hearts[i].src = 'images/lostHeart.png';
