@@ -4,17 +4,17 @@
 
 
 // Constructors
-const button = document.getElementById('btn__reset'); // Selector for start button
-const key = document.querySelectorAll('button.key'); // Selector for input keys 
+const button = document.getElementById('btn__reset');
+const key = document.querySelectorAll('button.key');
 let game = '';
 
 // Event Listeners
-button.addEventListener('click', () => { // Start button click
+button.addEventListener('click', () => {
     game = new Game();
     game.startGame();
 });
 
-for (let i = 0; i < key.length; i++) { // Keyboard key click
+for (let i = 0; i < key.length; i++) {
     key[i].addEventListener('click', () => {
         selectedKey = key[i];
         game.handleInteraction();

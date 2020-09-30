@@ -5,8 +5,8 @@
 class Game {
     constructor() {
         this.missed = 0;
-        this.phrases = this.createPhrases(); // What phrases do I have to choose from for the game?
-        this.activePhrase = null; // What is the phrase selected for the current game
+        this.phrases = this.createPhrases();
+        this.activePhrase = null;
     };
 
     createPhrases() {
@@ -21,43 +21,31 @@ class Game {
     };
 
     getRandomPhrase() {
-        // Generate a random number
         const randomIndex = Math.floor(Math.random() * this.phrases.length);
-        // Select a phrase with that number as the index
         const randomPhrase = this.phrases[randomIndex];
         return randomPhrase;
     };
 
     startGame() {
-        // hide the overlay
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
-        // get a phrase and set it as the active phrase
         this.activePhrase = this.getRandomPhrase();
-        // Add the active phrase to the display
         new Phrase(this.activePhrase).addPhraseToDisplay();
     };
 
     handleInteraction() {
-        // Check to see if selected letter matches one in the phrase
         let active = new Phrase(this.activePhrase);
         if (active.checkLetter(selectedKey.innerText) == true) {
-            // Add CSS class 'chosen' to selected letter
             const letter = selectedKey.innerText;
             selectedKey.className = 'chosen';
             active.showMatchedLetter(letter);
-            // call checkForWin
             game.checkForWin();
             // call gameOver
         } else {
-            // Disable the selected letter
             selectedKey.disabled = true;
-            // Add the CSS class 'wrong' to selected letter
             selectedKey.className = 'wrong';
             this.removeLife();
         }
-
-
     };
 
     checkForWin() {
@@ -93,7 +81,5 @@ class Game {
             overlay.className = 'lose';
             title.innerHTML = 'You are out of lives. Try again!'
         }
-        // update the h1 
-        // replate overlay css class with win or lose
     }
 }

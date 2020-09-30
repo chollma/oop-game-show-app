@@ -4,16 +4,12 @@
 
 class Phrase {
     constructor(phrase) {
-        // takes an object > accesses it's value > converts string to lower case
         this.phrase = phrase.phrase.toLowerCase();
     };
 
     addPhraseToDisplay() {
-        // split incoming phrase string into an array of its characters
         const chars = this.phrase.split('');
-        // select the phrase div to start adding elements of the phrase
         const div = document.getElementById('phrase');
-        // iterate through the characters building the list items in HTML
         for (let i = 0; i < chars.length; i++) {
             const li = document.createElement('li');
             li.innerText = chars[i];
@@ -22,14 +18,11 @@ class Phrase {
             } else {
                 li.className = 'space';
             }
-            // add the complete HTML to the page
             div.firstElementChild.append(li);
         }
     };
 
     checkLetter(character) {
-        // incoming data is a single character
-        // Check if the string includes this character
         if ((this.phrase).includes(character)) {
             return true;
         } else {
