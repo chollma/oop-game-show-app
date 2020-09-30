@@ -27,6 +27,19 @@ class Game {
     };
 
     startGame() {
+        const ul = document.querySelector('ul');
+        ul.innerHTML = '';
+        const buttons = document.querySelectorAll('button')
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = false;
+            buttons[i].className = 'key';
+        }
+
+        const hearts = document.querySelectorAll('img');
+        for (let i = 0; i < hearts.length; i++) {
+            hearts[i].src = 'images/liveHeart.png';
+        }
+
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
