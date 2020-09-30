@@ -40,10 +40,12 @@ class Game {
 
     handleInteraction() {
         // Check to see if selected letter matches one in the phrase
-        if (new Phrase(this.activePhrase).checkLetter(selectedKey.innerText) === true) {
+        let active = new Phrase(this.activePhrase);
+        if (active.checkLetter(selectedKey.innerText) == true) {
             // Add CSS class 'chosen' to selected letter
+            const letter = selectedKey.innerText;
             selectedKey.className = 'chosen';
-            game.showMatchedLetter(selectedKey.innerText);
+            active.showMatchedLetter(letter);
             // call checkForWin
             game.checkForWin();
             // call gameOver

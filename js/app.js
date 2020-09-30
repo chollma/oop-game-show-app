@@ -5,7 +5,7 @@
 
 // Constructors
 const button = document.getElementById('btn__reset'); // Selector for start button
-const key = document.getElementsByClassName('key'); // Selector for input keys 
+const key = document.querySelectorAll('button.key'); // Selector for input keys 
 let game = '';
 
 // Event Listeners

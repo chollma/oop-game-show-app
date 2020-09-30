@@ -30,15 +30,15 @@ class Phrase {
     checkLetter(character) {
         // incoming data is a single character
         // Check if the string includes this character
-        if ((this.phrase).indexOf(character)) {
+        if ((this.phrase).includes(character)) {
             return true;
         } else {
             return false;
         }
     }
 
-    showMatchedLetter() {
-        const hidden = document.getElementsByClassName(character);
+    showMatchedLetter(letter) {
+        const hidden = document.querySelectorAll('li.letter');
         for (let i = 0; i < hidden.length; i++) {
             if (hidden[i].className === 'hide letter ' + letter) {
                 hidden[i].className = 'show letter ' + letter;
@@ -46,5 +46,3 @@ class Phrase {
         }
     }
 };
-
-// if selected letter matches, displays letter on board
