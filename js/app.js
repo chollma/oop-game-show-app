@@ -26,4 +26,5 @@ for (let i = 0; i < key.length; i++) {
         selectedKey = key[i];
         game.handleInteraction();
     });
+
 }
