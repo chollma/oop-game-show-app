@@ -20,11 +20,11 @@ class Game {
 
     createPhrases() {
         const array = [
-            { phrase: 'This is the first phrase' },
-            { phrase: 'This is the second phrase' },
-            { phrase: 'This is the third phrase' },
-            { phrase: 'This is the fourth phrase' },
-            { phrase: 'This is the fifth phrase' }
+            { phrase: 'Live the life you have dreamed' },
+            { phrase: 'Through struggle to the stars' },
+            { phrase: 'The best way out is always through' },
+            { phrase: 'The sky is the daily bread of the eyes' },
+            { phrase: 'All truly great thoughts are conceived by walking' }
         ];
         return array;
     };
