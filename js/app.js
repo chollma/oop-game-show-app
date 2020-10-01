@@ -1,6 +1,13 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
- * app.js */
+ * app.js 
+ * 
+ * Creates a new game object and contains code that handles
+ * event listeners for player interaction with the start 
+ * button and on-screen keyboard.
+ * */
+
+
 
 
 // Constructors
