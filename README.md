@@ -7,8 +7,12 @@ This project utilizes utilizes vanilla HTML, CSS, JavaScript, and Object Oriente
 ## Running the Project
 To see the project in action, clone this repository to your desktop and open index.html in a browser. 
 
-
-
+## Default Style Changes
+- color-win changed from  #78CF82 to #405E58
+- color-lose changed from  #D94545 to #820901
+- font-family changed from Montserrat to Roboto Slab
+- background for the "wrong" class changed from  #f7a964 to #e97f22;
+- Added a box shadow to buttons - .125em .125em .125em .125em rgba(0, 0, 0, 0.2);
 
 ## Credits
 
@@ -17,3 +21,5 @@ To see the project in action, clone this repository to your desktop and open ind
 [GitHub](https://github.com/chollma) 
 [Twitter](https://twitter.com/cooperhollmaier) 
 [Website](https://cooperhollmaier.com)
+
+
