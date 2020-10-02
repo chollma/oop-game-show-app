@@ -35,20 +35,7 @@ class Game {
         return randomPhrase;
     };
 
-    startGame() { // Resets the board, lives, and adds a new random phrase
-        const ul = document.querySelector('ul');
-        ul.innerHTML = '';
-        const buttons = document.querySelectorAll('button')
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].disabled = false;
-            buttons[i].className = 'key';
-        }
-
-        const hearts = document.querySelectorAll('img');
-        for (let i = 0; i < hearts.length; i++) {
-            hearts[i].src = 'images/liveHeart.png';
-        }
-
+    startGame() { // Selects a new random phrase
         const overlay = document.getElementById('overlay');
         overlay.style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
@@ -57,17 +44,24 @@ class Game {
 
     handleInteraction() { // Handles player interaction with on-screen keyboard 
         let active = new Phrase(this.activePhrase);
-        if (active.checkLetter(selectedKey.innerText) == true) {
-            const letter = selectedKey.innerText;
-            selectedKey.className = 'chosen';
-            active.showMatchedLetter(letter);
-            game.checkForWin();
-        } else {
-            selectedKey.disabled = true;
-            selectedKey.className = 'wrong';
-            this.removeLife();
+        if (selectedKey.disabled == false) {
+            if (active.checkLetter(selectedKey.innerText) == true) {
+                const letter = selectedKey.innerText;
+                selectedKey.className = 'chosen';
+                active.showMatchedLetter(letter);
+                game.checkForWin();
+
+            } else {
+                selectedKey.disabled = true;
+                selectedKey.className = 'wrong';
+                this.removeLife();
+            }
+
+            if (this.checkForWin() === true) {
+                this.gameOver(true);
+            }
         }
-    };
+    }
 
     checkForWin() { // Updates the CSS class to show letters on the board that match a player's selection
         const letters = document.querySelectorAll('li.letter');
@@ -78,7 +72,9 @@ class Game {
             }
         }
         if (hidden.length === 0 && this.missed < 5) {
-            this.gameOver(true);
+            return true;
+        } else {
+            return false;
         }
     }
     removeLife() { // Updates heart image to simulate losing a life in the game
@@ -91,7 +87,18 @@ class Game {
             this.gameOver(false);
         }
     }
-    gameOver(arg) { // Updates the screen by showing the overlay and updating the heading appropriately
+    gameOver(arg) { // Resets the game, shows the overlay and updates the heading appropriately
+        const ul = document.querySelector('ul');
+        ul.innerHTML = '';
+        const buttons = document.querySelectorAll('button')
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = false;
+            buttons[i].className = 'key';
+        }
+        const hearts = document.querySelectorAll('img');
+        for (let i = 0; i < hearts.length; i++) {
+            hearts[i].src = 'images/liveHeart.png';
+        }
         const overlay = document.getElementById('overlay');
         const title = document.getElementById('game-over-message');
         overlay.style.display = '';
