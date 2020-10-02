@@ -12,7 +12,8 @@
 
 // Constructors
 const button = document.getElementById('btn__reset');
-const key = document.querySelectorAll('button.key');
+const keys = document.querySelectorAll('button.key');
+
 let game = '';
 
 // Event Listeners
@@ -21,10 +22,17 @@ button.addEventListener('click', () => {
     game.startGame();
 });
 
-for (let i = 0; i < key.length; i++) {
-    key[i].addEventListener('click', () => {
-        selectedKey = key[i];
+for (let i = 0; i < keys.length; i++) {
+    keys[i].addEventListener('click', () => {
+        selectedKey = keys[i];
+        console.log(selectedKey);
         game.handleInteraction();
     });
 
 }
+
+document.addEventListener('keydown', (event) => {
+    let pressed = `${event.key}`
+    selectedKey = Array.from(keys).find(key => key.innerHTML === pressed);
+    game.handleInteraction();
+});
