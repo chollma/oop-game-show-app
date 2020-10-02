@@ -62,7 +62,6 @@ class Game {
             selectedKey.className = 'chosen';
             active.showMatchedLetter(letter);
             game.checkForWin();
-            // call gameOver
         } else {
             selectedKey.disabled = true;
             selectedKey.className = 'wrong';
