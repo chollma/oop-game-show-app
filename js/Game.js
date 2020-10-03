@@ -91,7 +91,7 @@ class Game {
         const ul = document.querySelector('ul');
         ul.innerHTML = '';
         const buttons = document.querySelectorAll('button')
-        for (let i = 0; i < buttons.length; i++) {
+        for (let i = 1; i < buttons.length; i++) {
             buttons[i].disabled = false;
             buttons[i].className = 'key';
         }
