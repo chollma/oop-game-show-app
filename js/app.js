@@ -34,9 +34,10 @@ for (let i = 0; i < keys.length; i++) {
 }
 
 document.addEventListener('keydown', (event) => {
-    if (overlay.style.display === 'none') {
+    let code = `${event.keyCode}`;
+    if (overlay.style.display === 'none' && code >= 65 && code <= 90) {
         let pressed = `${event.key}`
         selectedKey = Array.from(keys).find(key => key.innerHTML === pressed);
-        game.handleInteraction();
+        game.handleInteraction(selectedKey);
     }
 })
