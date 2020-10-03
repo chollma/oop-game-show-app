@@ -13,6 +13,7 @@
 // Constructors
 const button = document.getElementById('btn__reset');
 const keys = document.querySelectorAll('button.key');
+const overlay = document.getElementById('overlay');
 
 let game = '';
 
@@ -20,6 +21,7 @@ let game = '';
 button.addEventListener('click', () => {
     game = new Game();
     game.startGame();
+
 });
 
 for (let i = 0; i < keys.length; i++) {
@@ -32,7 +34,9 @@ for (let i = 0; i < keys.length; i++) {
 }
 
 document.addEventListener('keydown', (event) => {
-    let pressed = `${event.key}`
-    selectedKey = Array.from(keys).find(key => key.innerHTML === pressed);
-    game.handleInteraction();
-});
+    if (overlay.style.display === 'none') {
+        let pressed = `${event.key}`
+        selectedKey = Array.from(keys).find(key => key.innerHTML === pressed);
+        game.handleInteraction();
+    }
+})
